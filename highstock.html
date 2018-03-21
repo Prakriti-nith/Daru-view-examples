@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://code.highcharts.com/stock/highstock.js"></script>
+      <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+   </head>
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px"></div>
+      <script language = "JavaScript">
+         $(function () { 
+             var myChart = Highcharts.stockChart('container', {
+                 rangeSelector: {
+                     selected: 1
+                 },
+
+                 title: {
+                     text: 'AAPL Stock Price'
+                 },
+
+                 series: [{
+                     name: 'AAPL',
+                     data: [
+                           [1147651200000,67.79],
+                           [1147737600000,64.98],
+                           [1147824000000,65.26],
+                           [1147910400000,63.18],
+                           [1147996800000,64.51],
+                           [1148256000000,63.38],
+                           [1148342400000,63.15],
+                           [1148428800000,63.34],
+                           [1148515200000,64.33],
+                           [1148601600000,63.55],
+                           [1148947200000,61.22],
+                           [1149033600000,59.77],
+
+                           [1149120000000,62.17],
+                           [1149206400000,61.66],
+                           [1149465600000,60.00],
+                           [1149552000000,59.72],
+                           [1149638400000,58.56],
+                           [1149724800000,60.76],
+                           [1149811200000,59.24],
+                           [1150070400000,57.00],
+
+                           [1170288000000,84.74],
+                           [1170374400000,84.75],
+                           [1170633600000,83.94],
+                           [1170720000000,84.15],
+                           [1170806400000,86.15],
+                           [1170892800000,86.18],
+                           [1170979200000,83.27],
+                           [1171238400000,84.88],
+                           [1171324800000,84.63],
+                           ],
+                     tooltip: {
+                         valueDecimals: 2
+                     }
+                 }]
+             });
+         });
+      </script>
+   </body>
+   
+</html>
