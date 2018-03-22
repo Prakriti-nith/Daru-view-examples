@@ -1,0 +1,63 @@
+<html>
+   <head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+   </head>
+   <body>
+      <div id="container" style="height: 400px; min-width: 310px"></div>
+      <script language = "JavaScript">
+         $(function () { 
+             var myChart = Highcharts.stockChart('container', {
+                 rangeSelector: {
+                     selected: 1
+                 },
+
+                 title: {
+                     text: 'AAPL Stock Price'
+                 },
+
+                 series: [{
+                     name: 'AAPL',
+                     data: [
+                           [1147651200000,67.79],
+                           [1147737600000,64.98],
+                           [1147824000000,65.26],
+
+                           [1149120000000,62.17],
+                           [1149206400000,61.66],
+                           [1149465600000,60.00],
+                           [1149552000000,59.72],
+
+                           [1157932800000,72.50],
+                           [1158019200000,72.63],
+                           [1158105600000,74.20],
+                           [1158192000000,74.17],
+                           [1158278400000,74.10],
+                           [1158537600000,73.89],
+
+                           [1170288000000,84.74],
+                           [1170374400000,84.75],
+
+                           [1174953600000,95.46],
+                           [1175040000000,93.24],
+                           [1175126400000,93.75],
+                           [1175212800000,92.91],
+
+                           [1180051200000,113.62],
+                           [1180396800000,114.35],
+                           [1180483200000,118.77],
+                           [1180569600000,121.19],
+                           ],
+                      type: 'area',
+                      threshold: null,
+                      tooltip: {
+                         valueDecimals: 2
+                     }
+                 }]
+             });
+         });
+      </script>
+   </body>
+   
+</html>
