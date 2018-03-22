@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function() {
+        var data1 = [];  //Dummy data. Will be provided by the user.
+        for ( var i=0 ; i<500 ; i++ ) {
+            data1.push( [ i, i, i] );
+        }
+        $('#example').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: false,
+            searching: false,
+            ajax: function ( data, callback, settings ) {
+                var out = [];
+                for ( var i=data.start, ien=data.start+data.length ; i<ien ; i++ ) {
+                    out.push( data1[i] );
+                }
+                setTimeout( function () {
+                    callback( {
+                        draw: data.draw,
+                        data: out,
+                        recordsTotal: 500,
+                        recordsFiltered: 500,
+                    } );
+                }, 50 );
+            },
+        });
+      });
+    </script>
+    <table id="example" class="display" width="100%">
+      <thead>
+        <tr>
+          <th>Age1</th>
+          <th>Age2</th>
+          <th>Age3</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+</html>
