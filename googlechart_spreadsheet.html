@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 800px; height: 600px;"></div>
+    <script type="text/javascript">
+      google.charts.load('visualization','1.0',{packages: ['corechart'], callback: drawChart});
+      function drawChart() {
+        var query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheets/d/1aXns2ch8y_rl9ZLxSYZIU5ewUB1ZNAg5O6iPLZLApZI/gviz/tq?gid=0&headers=1&tq=');
+        query.send(handleQueryResponse);
+      }
+      function handleQueryResponse(response) {
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data);
+      }
+    </script>
+  </body>
+</html>
