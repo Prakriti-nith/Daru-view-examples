@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<%=raw Daru::View.dependent_script(:highcharts) %>
+
+<!-- This will be added in the init_script method in style tags in daru-view. So, finally will be included in dependent_script above-->
+  	<link rel="stylesheet" href="https://code.highcharts.com/css/highcharts.css"> 
+  </head>
+  <body>
+ <!--This will be included in the high_chart_css method in to_html method along with the chart body. to_html is called from the @chart.div. So finally following CSS will be included in the yield.-->
+    <style>
+		.highcharts-color-0 {
+		fill: #7cb5ec;
+		stroke: #7cb5ec;
+		}
+		.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+			stroke: #7cb5ec;
+		}
+		.highcharts-axis.highcharts-color-0 text {
+			fill: #7cb5ec;
+		}
+		.highcharts-color-1 {
+			fill: #90ed7d;
+			stroke: #90ed7d;
+		}
+		.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+			stroke: #90ed7d;
+		}
+		.highcharts-axis.highcharts-color-1 text {
+			fill: #90ed7d;
+		}
+		.highcharts-yaxis .highcharts-axis-line {
+			stroke-width: 2px;
+		}
+	</style>
+    <%= yield %>
+  </body>
+</html>
