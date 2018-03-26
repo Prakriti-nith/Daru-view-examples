@@ -1,0 +1,46 @@
+<html>
+   <head>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/europe.js"></script>
+   </head>
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px"></div>
+      <script language = "JavaScript">
+        var myChart = Highcharts.mapChart('container', {
+          chart: {
+            map: 'custom/europe',
+            borderWidth: 1
+          },
+
+          title: {
+            text: 'Nordic countries'
+          },
+
+          subtitle: {
+            text: 'Demo of drawing all areas in the map, only highlighting partial data'
+          },
+
+          legend: {
+            enabled: false
+          },
+
+          series: [{
+            name: 'Country',
+            data: [
+                ['is', 1],
+                ['no', 1],
+                ['se', 1],
+                ['dk', 1],
+                ['fi', 1]
+            ],
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.name}'
+            }
+          }]
+        });
+      </script>
+   </body>
+</html>
