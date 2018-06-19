@@ -1,0 +1,97 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://www.cloudformatter.com/Resources/Pages/CSS2Pdf/Script/xepOnline.jqPlugin.js"></script>
+    <button type="button" id="pdf" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div', {render: 'download', filename: 'Years_Build', srctype:'svg'});">Export PDF</button>
+    <button type="button" id="png" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div', {render:'newwin', mimeType:'image/png', resolution:'120', srctype:'svg'});">Export PNG</button>
+    <button type="button" id="jpg" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div', {render:'newwin', mimeType:'image/jpg', resolution:'300', srctype:'svg'});">Export JPEG</button>
+    <div id="chart_div"></div>
+    <script>
+      // google.charts.load('current', {packages: ['charteditor'], callback: drawChartEditor});
+      google.charts.load('current', {
+        packages: ['corechart']
+      }).then(function () {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'y0');
+        data.addRows([
+          [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+          [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+          [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+          [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+          [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+          [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+          [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+          [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+
+        var container = document.getElementById('chart_div');
+        var chart = new google.visualization.LineChart(container);
+        
+        google.visualization.events.addListener(chart, 'ready', AddNamespace);
+
+        chart.draw(data);
+      });
+
+      function AddNamespace(){
+        var svg = jQuery('#chart_div svg');
+        svg.attr("xmlns", "http://www.w3.org/2000/svg");
+        svg.css('overflow','visible');
+        // return xepOnline.Formatter.Format('chart_div', {render: 'download', filename: 'Years_Build', srctype:'svg'});
+        // return xepOnline.Formatter.Format('chart_div', {render:'newwin', mimeType:'image/png', resolution:'120', srctype:'svg'})
+        // return xepOnline.Formatter.Format('chart_div', {render:'newwin', mimeType:'image/jpg', resolution:'300', srctype:'svg'})
+      }
+    </script>
+    <button type="button" id="pdf2" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div2', {render: 'download', filename: 'Years_Build', srctype:'xml'});">Export PDF</button>
+    <button type="button" id="png2" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div2', {render:'newwin', mimeType:'image/png', srctype:'svg'});">Export PNG</button>
+    <button type="button" id="jpg2" style="margin-right: 7px;" onclick="xepOnline.Formatter.Format('chart_div2', {render:'newwin', mimeType:'image/jpg', srctype:'xml'});">Export JPEG</button>
+    <div id="chart_div2"></div>
+    <script>
+      // google.charts.load('current', {packages: ['charteditor'], callback: drawChartEditor});
+      google.charts.load('current', {
+        packages: ['table']
+      }).then(function () {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'y');
+        data.addRows([
+          [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+          [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+          [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+          [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+          [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+          [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+          [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+          [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+
+        var container = document.getElementById('chart_div2');
+        var chart = new google.visualization.Table(container);
+        
+        google.visualization.events.addListener(chart, 'ready', AddNamespace1);
+
+        chart.draw(data);
+      });
+
+      function AddNamespace1(){
+        var svg = jQuery('#chart_div2 svg');
+        svg.attr("xmlns", "http://www.w3.org/2000/svg");
+        svg.css('overflow','visible');
+        // return xepOnline.Formatter.Format('chart_div2', {render: 'download', filename: 'Years_Build', srctype:'svg'});
+        // return xepOnline.Formatter.Format('chart_div2', {render:'newwin', mimeType:'image/png', resolution:'120', srctype:'svg'})
+        // return xepOnline.Formatter.Format('chart_div2', {render:'newwin', mimeType:'image/jpg', resolution:'300', srctype:'svg'})
+      }
+    </script>
+  </body>
+</html>
